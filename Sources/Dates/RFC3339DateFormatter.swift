@@ -30,7 +30,7 @@ import Foundation
  date specification into `NSDate` objects
  
  */
-class RFC3339DateFormatter: NSDateFormatter {
+class RFC3339DateFormatter: DateFormatter {
     
     let dateFormats = [
         "yyyy-MM-dd'T'HH:mm:ssZZZZZ",
@@ -39,18 +39,18 @@ class RFC3339DateFormatter: NSDateFormatter {
     
     override init() {
         super.init()
-        self.timeZone = NSTimeZone(forSecondsFromGMT: 0)
-        self.locale = NSLocale(localeIdentifier: "en_US_POSIX")
+        self.timeZone = TimeZone(forSecondsFromGMT: 0)
+        self.locale = Locale(localeIdentifier: "en_US_POSIX")
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) not supported")
     }
     
-    override func dateFromString(string: String) -> NSDate? {
+    override func date(from string: String) -> Date? {
         for dateFormat in self.dateFormats {
             self.dateFormat = dateFormat
-            if let date = super.dateFromString(string) {
+            if let date = super.date(from: string) {
                 return date
             }
         }

@@ -105,7 +105,7 @@ public class DublinCoreNamespace {
      as the W3CDTF profile of ISO 8601 [W3CDTF].
      
      */
-    public var dcDate: NSDate?
+    public var dcDate: Date?
     
     /** 
      

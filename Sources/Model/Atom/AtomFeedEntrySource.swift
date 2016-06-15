@@ -71,6 +71,6 @@ public class AtomFeedEntrySource {
      modifications necessarily result in a changed atom:updated value.
      
      */
-    public var updated: NSDate?
+    public var updated: Date?
 
 }
