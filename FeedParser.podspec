@@ -1,5 +1,6 @@
 Pod::Spec.new do |s|
   s.name = 'FeedParser'
+  s.deprecated_in_favor_of = 'FeedKit'
   s.version = '3.1.0'
   s.license = 'MIT'
   s.summary = 'An RSS and Atom feed parser written in Swift'
