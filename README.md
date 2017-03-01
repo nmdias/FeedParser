@@ -9,7 +9,8 @@ An RSS and Atom feed parser written in Swift
 [![language](https://img.shields.io/badge/swift-v2.2-orange.svg)](https://swift.org)
 [![documentation](https://img.shields.io/cocoapods/metrics/doc-percent/FeedParser.svg)](http://cocoadocs.org/docsets/FeedParser/)
 
-## Deprecated Notice
+:warning:
+## Deprecated Notice 
 FeedParser and been renamed [FeedKit](https://github.com/nmdias/FeedKit) and moved to a [new repository](https://github.com/nmdias/FeedKit).
 
 The sole reason for deprecating the FeedParser repository lies under the need to rename the framework while keeping a consistent use of it's new name. The new repository [FeedKit](https://github.com/nmdias/FeedKit) will be under active development and maintenance.
