@@ -70,7 +70,7 @@ class Parser: XMLParser, XMLParserDelegate {
      `<title>` element.
      
      */
-    private var currentXMLDOMPath: URL = URL(string: "/")!
+    fileprivate var currentXMLDOMPath: URL = URL(string: "/")!
     
     
     
@@ -106,7 +106,7 @@ class Parser: XMLParser, XMLParserDelegate {
      Starts parsing the feed.
      
      */
-    func parse(_ result: (Result) -> Void) {
+    func parse(_ result: @escaping (Result) -> Void) {
         self.result = result
         self.parse()
     }
@@ -118,7 +118,7 @@ class Parser: XMLParser, XMLParserDelegate {
      mappers based on the `currentXMLDOMPath`
      
      */
-    private func mapCharacters(_ string: String) {
+    fileprivate func mapCharacters(_ string: String) {
         
         guard let feedType = self.feedType else { return }
         
@@ -126,14 +126,14 @@ class Parser: XMLParser, XMLParserDelegate {
             
         case .Atom:
             
-            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString!) {
+            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.atomFeed?.map(characters: string, forPath: path)
             }
             
         case .RSS1, .RSS2:
             
-            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString!) {
-                self.rssFeed?.map(string: string, forPath: path)
+            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
+                self.rssFeed?.map(string, forPath: path)
             }
             
         }
@@ -188,7 +188,7 @@ extension Parser {
                 self.atomFeed = AtomFeed()
             }
             
-            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString!) {
+            if let path = AtomPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.atomFeed?.map(attributes: attributeDict, forPath: path)
             }
             
@@ -198,7 +198,7 @@ extension Parser {
                 self.rssFeed = RSSFeed()
             }
             
-            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString!) {
+            if let path = RSSPath(rawValue: self.currentXMLDOMPath.absoluteString) {
                 self.rssFeed?.map(attributes: attributeDict, forPath: path)
             }
             
@@ -217,7 +217,7 @@ extension Parser {
         
         guard let string = NSString(data: CDATABlock, encoding: String.Encoding.utf8.rawValue) as? String else {
             self.abortParsing()
-            self.result?(Result.failure(Error.feedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString!).value))
+            self.result?(Result.failure(Error.feedCDATABlockEncodingError(path: self.currentXMLDOMPath.absoluteString).value))
             return
         }
         
@@ -229,7 +229,7 @@ extension Parser {
         self.mapCharacters(string)
     }
     
-    func parser(_ parser: XMLParser, parseErrorOccurred parseError: NSError) {
+    @nonobjc func parser(_ parser: XMLParser, parseErrorOccurred parseError: NSError) {
         self.result?(Result.failure(parseError))
     }
     

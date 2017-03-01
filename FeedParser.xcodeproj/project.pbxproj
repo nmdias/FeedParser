@@ -1055,6 +1055,7 @@
 					};
 					A0EF4DAB1CE869AD00C52142 = {
 						CreatedOnToolsVersion = 7.3.1;
+						LastSwiftMigration = 0820;
 					};
 					A0EF4DC11CE86A0600C52142 = {
 						CreatedOnToolsVersion = 7.3.1;
@@ -1070,7 +1071,7 @@
 					};
 					A0EF4E0B1CE86D1E00C52142 = {
 						CreatedOnToolsVersion = 7.3.1;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0820;
 					};
 				};
 			};
@@ -2234,6 +2235,7 @@
 				PRODUCT_NAME = "FeedParser Example iOS";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = "Release Test";
@@ -2557,6 +2559,7 @@
 				PRODUCT_NAME = "FeedParser Example iOS";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0;
 			};
 			name = Debug;
 		};
@@ -2601,6 +2604,7 @@
 				PRODUCT_NAME = "FeedParser Example iOS";
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;

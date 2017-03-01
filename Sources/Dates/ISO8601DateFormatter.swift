@@ -41,8 +41,8 @@ class ISO8601DateFormatter: DateFormatter {
     
     override init() {
         super.init()
-        self.timeZone = TimeZone(forSecondsFromGMT: 0)
-        self.locale = Locale(localeIdentifier: "en_US_POSIX")
+        self.timeZone = TimeZone(secondsFromGMT: 0)
+        self.locale = Locale(identifier: "en_US_POSIX")
     }
     
     required init?(coder aDecoder: NSCoder) {

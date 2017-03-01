@@ -118,7 +118,7 @@ public enum Result {
      otherwise.
      
      */
-    public var error: ErrorProtocol? {
+    public var error: NSError? {
         
         switch self {
         case .atom(_): return nil

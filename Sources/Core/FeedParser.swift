@@ -30,7 +30,7 @@ import Foundation
  `NSXMLParser`.
  
  */
-public class FeedParser {
+open class FeedParser {
     
     /**
      
@@ -98,7 +98,7 @@ public class FeedParser {
      Starts parsing the feed.
      
      */
-    public func parse(_ result: (Result) -> Void) {
+    open func parse(_ result: @escaping (Result) -> Void) {
         self.parser.parse(result)
     }
     

@@ -34,7 +34,7 @@ extension RSSFeed {
      - parameter path:      The path of feed's element
      
      */
-    func map(string: String, forPath path: RSSPath) {
+    func map(_ string: String, forPath path: RSSPath) {
         
         switch path {
             
@@ -82,7 +82,7 @@ extension RSSFeed {
         case .RSSChannelSkipHours:                        break
         case .RSSChannelSkipHoursHour:
             
-            if let hour = RSSFeedSkipHour(string) where 0...23 ~= hour  {
+            if let hour = RSSFeedSkipHour(string), 0...23 ~= hour  {
                 self.skipHours?.append(hour)
             }
             
