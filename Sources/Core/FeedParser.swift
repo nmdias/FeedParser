@@ -30,7 +30,7 @@ import Foundation
  `NSXMLParser`.
  
  */
-public class FeedParser {
+open class FeedParser {
     
     /**
      
@@ -51,9 +51,9 @@ public class FeedParser {
      - returns: An instance of the feed parser.
      
      */
-    public init?(URL: NSURL) {
+    public init?(URL: Foundation.URL) {
         
-        guard let parser = Parser(contentsOfURL: URL) else {
+        guard let parser = Parser(contentsOf: URL) else {
             return nil
         }
         
@@ -72,7 +72,7 @@ public class FeedParser {
      - returns: An instance of the `FeedParser`.
      
      */
-    public init(data: NSData) {
+    public init(data: Data) {
         self.parser = Parser(data: data)
     }
     
@@ -87,7 +87,7 @@ public class FeedParser {
      - returns: An instance of the `FeedParser`.
      
      */
-    public init(stream: NSInputStream) {
+    public init(stream: InputStream) {
         self.parser = Parser(stream: stream)
     }
     
@@ -98,7 +98,7 @@ public class FeedParser {
      Starts parsing the feed.
      
      */
-    public func parse(result: Result -> Void) {
+    open func parse(_ result: @escaping (Result) -> Void) {
         self.parser.parse(result)
     }
     
